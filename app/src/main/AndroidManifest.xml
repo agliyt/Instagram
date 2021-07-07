@@ -20,6 +20,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Instagram">
 
         <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
