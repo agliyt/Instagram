@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,37 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
+            }
+        });
+        btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick sign up button");
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+                signUpUser(username, password);
+            }
+        });
+    }
+
+    private void signUpUser(String username, String password) {
+        Log.i(TAG, "Attempting to login user " + username);
+        ParseUser user = new ParseUser();
+        user.setUsername(username);
+        user.setPassword(password);
+
+        // Other fields can be set just like any other ParseObject,
+        // using the "put" method, like this: user.put("attribute", "its value");
+        // If this field does not exists, it will be automatically created
+
+        user.signUpInBackground(e -> {
+            if (e == null) {
+                goMainActivity();
+                Toast.makeText(LoginActivity.this, "Sign up success!", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e(TAG, "Issue with sign up", e);
+                Toast.makeText(LoginActivity.this, "Issue with sign up!", Toast.LENGTH_SHORT).show();
             }
         });
     }

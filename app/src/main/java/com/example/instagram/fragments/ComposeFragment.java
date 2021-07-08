@@ -15,6 +15,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.example.instagram.MainActivity;
 import com.example.instagram.Post;
 import com.example.instagram.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -52,6 +54,7 @@ public class ComposeFragment extends Fragment {
     private ImageView ivPostImage;
     private Button btnSubmit;
     private File photoFile;
+    private BottomNavigationView bottomNavigationView;
 
     public ComposeFragment() {
         // Required empty public constructor
@@ -93,6 +96,10 @@ public class ComposeFragment extends Fragment {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
+                bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
+                Menu menu = bottomNavigationView.getMenu();
+                menu.findItem(R.id.action_home).setIcon(R.drawable.instagram_home_filled_24);
+                bottomNavigationView.setSelectedItemId(R.id.action_home);
             }
         });
     }
