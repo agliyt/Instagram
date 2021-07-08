@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="16dp"
-    tools:context=".fragments.ProfileFragment">
+    tools:context=".fragments.SettingsFragment">
+
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Out" />
 
 </LinearLayout>
