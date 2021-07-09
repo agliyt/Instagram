@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvUsername"
+        android:id="@+id/tvUsernameDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -17,20 +18,20 @@
         tools:text="angie" />
 
     <ImageView
-        android:id="@+id/ivImage"
+        android:id="@+id/ivImageDetail"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvDescription"
+        android:id="@+id/tvDescriptionDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="trying to be hipster" />
 
     <TextView
-        android:id="@+id/tvTime"
+        android:id="@+id/tvTimeDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
